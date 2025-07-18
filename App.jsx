@@ -9,6 +9,21 @@ import ExtensionPuzzle from "./ExtensionPuzzle";
 import SecureAccess from "./SecureAccess";
 import Leaderboard from "./Leaderboard";
 
+function App() {
+    const [games, setGames] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/api/games')
+            .then(response => response.json())
+            .then(data => setGames(data.message));
+    }, []);
+    return (
+        <div>
+            <h1>Games List</h1>
+            <p>{games}</p>
+        </div>
+    );
+}
+
 function formatTime(seconds) {
   const min = String(Math.floor(seconds / 60)).padStart(2, "0");
   const sec = String(seconds % 60).padStart(2, "0");
