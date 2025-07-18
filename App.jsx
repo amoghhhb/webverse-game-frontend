@@ -23,6 +23,21 @@ function App() {
         </div>
     );
 }
+function App() {
+  // Sample data for testing (replace with actual values later)
+  const userData = {
+    name: "Amogh",
+    department: "Computer Science",
+  };
+
+  const timeTaken = 123; // in seconds
+
+  return (
+    <div>
+      <Leaderboard userData={userData} timeTaken={timeTaken} />
+    </div>
+  );
+}
 
 function formatTime(seconds) {
   const min = String(Math.floor(seconds / 60)).padStart(2, "0");
